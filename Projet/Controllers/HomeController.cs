@@ -24,6 +24,11 @@ namespace Projet.Controllers
             ViewBag.notFound = false;
             return View();
         }
+        public IActionResult privacy()
+        {
+            ViewBag.notFound = false;
+            return View();
+        }
         [HttpPost]
         public IActionResult SignIn( String email, String password )
         {

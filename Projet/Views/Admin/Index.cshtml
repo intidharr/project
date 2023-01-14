@@ -1,4 +1,5 @@
 ﻿@model List<Emprunt>;
+@using Projet.Data;
 <style>
     .one-edge-shadow, .reports .reports-dashboard .data-dashboard .dashboard-list-item-active .dashboard-metric {
         -webkit-box-shadow: 0 8px 0 0 #0ea8ad;
@@ -253,14 +254,14 @@
                                     <li class="dashboard-list-item" role="tab" aria-selected="false">
                                         <a class="dashboard-metric" href="#">
                                             <span class="title">Toatl Books</span>
-                                            <span class="metric">945</span>
+                                            <span class="metric">445</span>
                                             
                                         </a>
                                     </li> 
                                     <li class="dashboard-list-item" role="tab" aria-selected="false">
                                         <a class="dashboard-metric" href="#">
                                             <span class="title">total copies of books </span>
-                                            <span class="metric">2000</span>
+                                            <span class="metric">1000</span>
                                             
                                         </a>
                                     </li>
@@ -288,7 +289,7 @@
                                     <li class="dashboard-list-item" role="tab" aria-selected="false">
                                         <a class="dashboard-metric" href="#">
                                             <span class="title">book/subscriber</span>
-                                            <span class="metric">56</span>
+                                            <span class="metric">3</span>
                                             
                                         </a>
                                     </li>
@@ -372,11 +373,13 @@
                                                         </div>
 
                                                         <!--Available copies-->
-                                    @{
-                                    foreach (Book b in ViewBag.books)
+                                @{
+                                    BookRepository books = ViewBag.books;
+                                    Book b =(Book) books.Find((s) => s.Id_Book == c.id_book);
+                                   @* foreach (Book b in ViewBag.books)
                                     {
                                         if (b.Id_Book == c.id_book)
-                                        {
+                                        {*@
 
                                                     <div role="gridcell" class="grid-cell">
                                                         <span class="datum">@b.Available_Nbs</span>
@@ -386,7 +389,7 @@
                                                     <div role="gridcell" class="grid-cell">
                                                         <span class="datum">@b.Copies_Nbs</span>
 
-                                                                </div> }}}
+                                                                </div> }
                                                     </div>
                                                     <!--Row-->
                                                     <!--Row-->

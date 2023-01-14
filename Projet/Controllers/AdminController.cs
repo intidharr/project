@@ -22,9 +22,9 @@ namespace Projet.Controllers
 
             List<Emprunt> emprunts = libraryContext.Emprunt.OrderBy(e => e.deadline).ToList();
                                     
-            List<Book> books = libraryContext.Book.ToList();
            
-            ViewBag.books = books; 
+           
+            ViewBag.books = bookRep; 
 
             return View(emprunts);
         }
