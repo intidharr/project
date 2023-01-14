@@ -349,7 +349,7 @@
                                             </div>
                                             <!--Header Row-->
                                             <!--Row-->
-                                @{
+                                @{  BookRepository books = ViewBag.books;
                                     foreach ( Emprunt c in Model)
                                     {
                                                     <div class="grid-row" role="row">
@@ -374,12 +374,9 @@
 
                                                         <!--Available copies-->
                                 @{
-                                    BookRepository books = ViewBag.books;
+                                   
                                     Book b =(Book) books.Find((s) => s.Id_Book == c.id_book);
-                                   @* foreach (Book b in ViewBag.books)
-                                    {
-                                        if (b.Id_Book == c.id_book)
-                                        {*@
+                                    b.Available_Nbs = b.Available_Nbs - 1;
 
                                                     <div role="gridcell" class="grid-cell">
                                                         <span class="datum">@b.Available_Nbs</span>
