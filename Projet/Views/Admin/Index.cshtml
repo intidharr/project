@@ -375,7 +375,7 @@
                                                         <!--Available copies-->
                                 @{
                                    
-                                    Book b =(Book) books.Find((s) => s.Id_Book == c.id_book);
+                                    Book b =(Book) books.Find((s) => s.Id_Book == c.id_book).find();
                                     b.Available_Nbs = b.Available_Nbs - 1;
 
                                                     <div role="gridcell" class="grid-cell">
